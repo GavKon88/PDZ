@@ -2,17 +2,18 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Mock Site</title>
+        <title>Mock Site Search</title>
         <link rel="icon" href="assets/favicon.png" type="image/png">
         <style>
             body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #111;
-            color: #eee;
-            text-align: center;
-            padding-top: 180px;
+                margin: 0;
+                font-family: Arial, sans-serif;
+                background-color: white;
+                color: #111;
+                text-align: center;
+                padding-top: 180px;
             }
+
             .logo-container {
                 position: fixed;
                 top: 1rem;
@@ -20,44 +21,107 @@
                 transform: translateX(-50%);
                 z-index: 1000;
             }
+
             .logo-container img {
                 height: 160px;
             }
-            .link-list {
+
+            #search-container {
                 margin-top: 2rem;
-                display: inline-block;
+            }
+
+            #searchInput {
+                padding: 10px;
+                font-size: 1.2rem;
+                width: 300px;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+            }
+
+            #suggestions {
+                margin: 0 auto;
+                margin-top: 1rem;
+                max-width: 300px;
                 text-align: left;
             }
-            .link-list a {
-                display: block;
-                color: #89c4f4;
-                text-decoration: none;
-                margin: 6px 0;
-                font-size: 1.2rem;
+
+            .suggestion {
+                padding: 10px;
+                background-color: #f0f0f0;
+                border-bottom: 1px solid #ddd;
+                cursor: pointer;
+                border-radius: 4px;
+                margin-bottom: 5px;
             }
-            .link-list a:hover {
-                text-decoration: underline;
+
+            .suggestion:hover {
+                background-color: #e0e0e0;
             }
         </style>
     </head>
     <body>
-
         <div class="logo-container">
             <img src="https://i.postimg.cc/pd9yM90P/head2.png" alt="Header">
         </div>
 
-        <div class="link-list">
-            <a href="druzhna.html">Druzhna</a>
-            <a href="konstantin.html">Konstantin</a>
-            <a href="kovchag.html">Kovchag</a>
-            <a href="military.html">Military</a>
-            <a href="morozov.html">Morozov</a>
-            <a href="OPV.html">OPV</a>
-            <a href="politics.html">Politics</a>
-            <a href="yelovsk.html">Yelovsk</a>
-            <a href="zegracrisis.html">Zegra Secession Crisis</a>
-            <a href="ZTI.html">ZTI</a>
+        <div id="search-container">
+            <input type="text" id="searchInput" placeholder="Search pages...">
+            <div id="suggestions"></div>
         </div>
 
+        <script>
+            const pages = [
+                { name: "Druzhna Blackout Arrests", url: "druzhna.html" },
+                { name: "Konstantin Vezhar", url: "konstantin.html" },
+                { name: "Kovchag Labor Crackdown", url: "kovchag.html" },
+                { name: "PDZ Military", url: "military.html" },
+                { name: "Antonovich Morozov (blank)", url: "morozov.html" },
+                { name: "Operation Patriotic Veil (OPV)", url: "OPV.html" },
+                { name: "PDZ Politics", url: "politics.html" },
+                { name: "Yelovsk Power Plant Shelling", url: "yelovsk.html" },
+                { name: "Zegra Secession Crisis", url: "zegracrisis.html" },
+                { name: "Zegra Technological Initiative (ZTI)", url: "ZTI.html" }
+            ];
+
+            const input = document.getElementById("searchInput");
+            const suggestions = document.getElementById("suggestions");
+
+            function showSuggestions(filter) {
+                suggestions.innerHTML = "";
+                let filtered;
+
+                if (!filter) {
+                    filtered = pages;
+                } else {
+                    const lowerFilter = filter.toLowerCase();
+                    filtered = pages.filter(page =>
+                    page.name.toLowerCase().includes(lowerFilter)
+                    );
+                }
+
+                filtered.forEach(page => {
+                    const div = document.createElement("div");
+                    div.classList.add("suggestion");
+                    div.textContent = page.name;
+                    div.onclick = () => window.location.href = page.url;
+                    suggestions.appendChild(div);
+                });
+            }
+
+            input.addEventListener("input", function () {
+                const value = input.value.trim();
+                if (value === "") {
+                    showSuggestions();
+                } else {
+                    showSuggestions(value);
+                }
+            });
+
+                input.addEventListener("focus", function () {
+                    if (input.value.trim() === "") {
+                        showSuggestions();
+                    }
+                });
+        </script>
     </body>
 </html>
