@@ -10,6 +10,7 @@
     </script>
     <link rel="stylesheet" href="assets/css/style.css">
     <script defer src="assets/js/darkmode.js"></script>
+    <script defer src="assets/js/univsearch.js"></script>
     </script> 
     <link rel="icon" href="assets/favicon.png" type="image/png">
     <style>
@@ -47,6 +48,10 @@
     </style>
   </head>
   <body>
+      <div id="univ-search-container">
+          <input type="text" id="univSearchInput" placeholder="Search pages..." autocomplete="off" />
+          <div id="univSuggestions"></div>    
+      </div>
       <div>
           <a href="index.html">
           <img id="logo" src="https://i.postimg.cc/pd9yM90P/head2.png" 
@@ -119,8 +124,7 @@
           <li style="margin-bottom: 1em;"><strong><a href="druzhna.html">Druzhna Blackout Arrests</a> (October 16, 1992):</strong> During a suspicious power outage in the city of Druzhna, Russian federal agents swept through neighborhoods arresting suspected dissidents. 63 were detained; many never reappeared.</li>
         </ul>
       </div>
-    
-      <div style="width: 200px; background: #f0f0f0; padding: 0.5em; border: 1px solid #ccc; font-size: 80%;">
+      <div class="infobox">
         <img src="https://i.postimg.cc/przdhDDZ/street.png" alt="Two Russian Federation soldiers securing a street during the Druzhna Blackout" style="width: 100%; height: auto; border: 1px solid #888;">
         <p style="margin-top: 0.5em;">Two Russian Federation soldiers securing a street during the Druzhna Blackout (October 1992).</p>
       </div>

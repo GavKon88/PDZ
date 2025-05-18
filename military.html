@@ -9,7 +9,8 @@
             }
         </script>
         <link rel="stylesheet" href="assets/css/style.css">
-        <script defer src="assets/js/darkmode.js"></script>     
+        <script defer src="assets/js/darkmode.js"></script>
+        <script defer src="assets/js/univsearch.js"></script>     
         <link rel="icon" href="assets/favicon.png" type="image/png">
         <style>
         body {
@@ -49,6 +50,10 @@
         </style>
     </head>
     <body>
+        <div id="univ-search-container">
+            <input type="text" id="univSearchInput" placeholder="Search pages..." autocomplete="off" />
+            <div id="univSuggestions"></div>    
+        </div>
         <div>
             <a href="index.html">
             <img id="logo" src="https://i.postimg.cc/pd9yM90P/head2.png" 
