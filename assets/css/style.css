@@ -1,0 +1,45 @@
+/* Base styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: #111;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+input,
+.suggestion {
+    background-color: #f0f0f0;
+    color: #111;
+    border: 1px solid #ccc;
+}
+
+/* Dark mode styles - applied when html has class 'dark-mode' */
+html.dark-mode body {
+    background-color: #111;
+    color: #f0f0f0;
+}
+
+html.dark-mode input,
+html.dark-mode .suggestion {
+    background-color: #222;
+    color: #f0f0f0;
+    border-color: #444;
+}
+
+html.dark-mode .suggestion:hover {
+    background-color: #333;
+}
+
+html.dark-mode .infobox {
+    background-color: #1a1a1a;
+    color: #f1f1f1;
+    border-color: #555;
+}
+
+html.dark-mode .infobox th {
+    background-color: #333;
+    color: #f1f1f1;
+}
+
+/* Other styles remain unchanged */

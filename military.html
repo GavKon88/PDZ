@@ -1,285 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>ZADF - WikiReal</title>
-    <link rel="icon" href="assets/favicon.png" type="image/png">
-    <style>
-    body {
-        font-family: sans-serif;
-        max-width: 1200px;
-        margin: auto;
-        padding: 1rem;
-        background: #f8f9fa;
-        color: #202122;
-    }
-    h1, h2, h3 {
-        color: #2a4b8d;
-    }
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 1rem;
-    }
-    th, td {
-        border: 1px solid #ccc;
-        padding: 0.5em;
-        text-align: left;
-    }
-    th {
-        background-color: #e6ecf2;
-    }
-    img {
-        max-width: auto;
-        height: auto;
-    }
-    .equipment-table img {
-        max-height: 100px;
-        width: auto;
-        border: 1px solid #888;
-        border-radius: 4px;
-    }
-    </style>
-</head>
-<body>
-    <div>
-        <a href="index.html">
-        <img src="https://i.postimg.cc/pd9yM90P/head2.png" 
-            alt="Header"
-            style="position: fixed; top: 1rem; left: 0px; height: 120px; z-index: 1000;">
-        </a>
-    </div>
-    
-    <h1>Zegra Armed Directorate Forces (ZADF)</h1>
-    <p>The Zegra Armed Directorate Forces (ZADF) serve as the principal military institution of the <a href="zegracrisis.html">People’s Directorate of Zegra</a> (PDZ). Directly loyal to Premier <a href="morozov.html">Antonovich Morozov</a>, the ZADF functions both as a conventional military force and an instrument of political control. ZADF doctrine emphasizes domination over key terrain, urban sectors, and civilian population centers — prioritizing operational presence over winning hearts and minds.</p>
-    <p>The armed forces are structured around regionally raised directorate brigades, with a focus on rapid internal mobilization, counter-insurgency preparedness, and mechanized warfare.</p>
+    <head>
+        <meta charset="UTF-8">
+        <title>ZADF - WikiReal</title>
+        <script>
+            if (localStorage.getItem("darkMode") === "true") {
+                document.documentElement.classList.add("dark-mode");
+            }
+        </script>
+        <link rel="stylesheet" href="assets/css/style.css">
+        <script defer src="assets/js/darkmode.js"></script>     
+        <link rel="icon" href="assets/favicon.png" type="image/png">
+        <style>
+        body {
+            font-family: sans-serif;
+            max-width: 1200px;
+            margin: auto;
+            padding: 1rem;
+            background: #f8f9fa;
+            color: #202122;
+        }
+        h1, h2, h3 {
+            color: #2a4b8d;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 0.5em;
+            text-align: left;
+        }
+        th {
+            background-color: #e6ecf2;
+        }
+        img {
+            max-width: auto;
+            height: auto;
+        }
+        .equipment-table img {
+            max-height: 100px;
+            width: auto;
+            border: 1px solid #888;
+            border-radius: 4px;
+        }
+        </style>
+    </head>
+    <body>
+        <div>
+            <a href="index.html">
+            <img src="https://i.postimg.cc/pd9yM90P/head2.png" 
+                alt="Header"
+                style="position: fixed; top: 1rem; left: 0px; height: 120px; z-index: 1000;">
+            </a>
+        </div>
+        <div>
+            <button id="darkModeToggle" style="
+                position: fixed;
+                top: 140px;
+                left: 10px;
+                font-size: 0.9rem;
+                padding: 6px 10px;
+                background-color: #ddd;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                z-index: 1000;
+                ">
+                Toggle Dark Mode
+            </button>
+        </div>
+                
+        <h1>Zegra Armed Directorate Forces (ZADF)</h1>
+        <p>The Zegra Armed Directorate Forces (ZADF) serve as the principal military institution of the <a href="zegracrisis.html">People’s Directorate of Zegra</a> (PDZ). Directly loyal to Premier <a href="morozov.html">Antonovich Morozov</a>, the ZADF functions both as a conventional military force and an instrument of political control. ZADF doctrine emphasizes domination over key terrain, urban sectors, and civilian population centers — prioritizing operational presence over winning hearts and minds.</p>
+        <p>The armed forces are structured around regionally raised directorate brigades, with a focus on rapid internal mobilization, counter-insurgency preparedness, and mechanized warfare.</p>
 
-    <h2>Ground Forces Equipment</h2>
-    <table>
-    <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Quantity</th>
-        <th>Origin</th>
-        <th>Photo</th>
-        <th>Notes</th>
-    </tr>
-    <tr>
-        <td>T-80BV</td>
-        <td>Main Battle Tank</td>
-        <td>244</td>
-        <td>Russia</td>
-        <td style="padding: 0.5em; text-align: center;">
-            <img src="https://i.postimg.cc/Bn4RbgvM/T-80BV.png" 
-                alt="No Available Image" 
-                style="max-width: 100%; max-height: 120px;">
-        </td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>T-80BV</td>
-        <td>Main Battle Tank</td>
-        <td>244</td>
-        <td>Russia</td>
-        <td style="padding: 0.5em; text-align: center;">
-            <img src="" 
-                alt="No available image" 
-                style="max-width: 200px; max-height: 100%px;">
-        </td>
-        <td></td>
-    </tr>
-    </table>
+        <h2>Ground Forces Equipment</h2>
+        <table>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Quantity</th>
+            <th>Origin</th>
+            <th>Photo</th>
+            <th>Notes</th>
+        </tr>
+        <tr>
+            <td>T-80BV</td>
+            <td>Main Battle Tank</td>
+            <td>244</td>
+            <td>Russia</td>
+            <td style="padding: 0.5em; text-align: center;">
+                <img src="https://i.postimg.cc/Bn4RbgvM/T-80BV.png" 
+                    alt="No Available Image" 
+                    style="max-width: 100%; max-height: 120px;">
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>T-80BV</td>
+            <td>Main Battle Tank</td>
+            <td>244</td>
+            <td>Russia</td>
+            <td style="padding: 0.5em; text-align: center;">
+                <img src="" 
+                    alt="No available image" 
+                    style="max-width: 200px; max-height: 100%px;">
+            </td>
+            <td></td>
+        </tr>
+        </table>
 
-    <h2>Zegra Directorate Air Forces (ZDAF)</h2>
-    <p>The Zegra Directorate Air Forces (ZDAF) are a heavily centralized air wing under direct command of the General Directorate Staff. The ZDAF operates primarily in support of ground forces and internal security operations. Like the ground forces, air power is doctrinally tied to the principle of population control and strategic denial of mobility to enemy formations.</p>
-    <p>During the beginning of the <a href="zegracrisis.html">Zegra secession crisis</a>, militias were able to storm relatively disorganized Russian airbases and capture a large amount of stored legacy airfames in addition to several more modern airframes. Recent efforts under the Zegra Technological Initiative aim to incorporate indigenous drone and EW (electronic warfare) capability into the air wing.</p>
+        <h2>Zegra Directorate Air Forces (ZDAF)</h2>
+        <p>The Zegra Directorate Air Forces (ZDAF) are a heavily centralized air wing under direct command of the General Directorate Staff. The ZDAF operates primarily in support of ground forces and internal security operations. Like the ground forces, air power is doctrinally tied to the principle of population control and strategic denial of mobility to enemy formations.</p>
+        <p>During the beginning of the <a href="zegracrisis.html">Zegra secession crisis</a>, militias were able to storm relatively disorganized Russian airbases and capture a large amount of stored legacy airfames in addition to several more modern airframes. Recent efforts under the Zegra Technological Initiative aim to incorporate indigenous drone and EW (electronic warfare) capability into the air wing.</p>
 
-    <h2>Air Force Equipment</h2>
-    <table>
-    <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Quantity</th>
-        <th>Origin</th>
-        <th>Photo</th>
-        <th>Notes</th>
-    </tr>
-    <!-- Airsup -->
-    <tr>
-        <td>Mikoyan-Gurevich MiG-21</td>
-        <td>Fighter</td>
-        <td>110</td>
-        <td>Russia</td>
-        <td style="padding: 0.5em; text-align: center;">
-            <img src="https://i.postimg.cc/2jwKMt2R/mig21.png" 
-                alt="No Available Image" 
-                style="max-width: 200px; max-height: 100%px;">
-        </td>
-        <td>77 operational airframes and 33 airframes in long-term storage as of 2019</td>
-    </tr>
-    <tr>
-        <td>Mikoyan-Gurevich MiG-23</td>
-        <td>Fighter</td>
-        <td>104</td>
-        <td>Russia</td>
-        <td style="padding: 0.5em; text-align: center;">
-            <img src="" 
-                alt="No available image" 
-                style="max-width: 200px; max-height: 100%px;">
-        </td>
-        <td>88 operational airframes and 16 airframes in long-term storage as of 2019</td>
-    </tr>
-    <!-- Multirole -->
-    <tr>
-        <td>Sukhoi Su-15</td>
-        <td>Interceptor</td>
-        <td>54</td>
-        <td>Russia</td>
-        <td style="padding: 0.5em; text-align: center;">
-            <img src="https://i.postimg.cc/HL21sLd3/plane.png" 
-                alt="No Available Image" 
-                style="max-width: 200px; max-height: 100%px;">
-        </td>
-        <td>54 operational airframes relegated to reserve forces as of 2007</td>
-    </tr>
-    <tr>
-        <td>Mikoyan-Gurevich MiG-25</td>
-        <td>Interceptor</td>
-        <td>15</td>
-        <td>Russia</td>
-        <td style="padding: 0.5em; text-align: center;">
-            <img src="" 
-                alt="No Available Image" 
-                style="max-width: 200px; max-height: 100%px;">
-        </td>
-        <td>15 operational airframes as of 2019</td>
-    </tr>
-    <tr>
-        <td>Mikoyan MiG-31</td>
-        <td>Interceptor</td>
-        <td>11</td>
-        <td>Russia</td>
-        <td style="padding: 0.5em; text-align: center;">
-            <img src="" 
-                alt="No available image" 
-                style="max-width: 200px; max-height: 100%px;">
-        </td>
-        <td></td>
-    </tr>
-    <!-- Multirole -->
-    <tr>
-        <td>Mikoyan MiG-29</td>
-        <td>Multi-Role Fighter</td>
-        <td>18</td>
-        <td>Russia</td>
-        <td style="padding: 0.5em; text-align: center;">
-            <img src="" 
-                alt="No available image" 
-                style="max-width: 200px; max-height: 100%px;">
-        </td>
-        <td>18 operational airframes as of 2019</td>
-    </tr>
-    <tr>
-        <td>Sukhoi Su-27</td>
-        <td>Multi-Role Fighter</td>
-        <td>15</td>
-        <td>Russia</td>
-        <td style="padding: 0.5em; text-align: center;">
-            <img src="" 
-                alt="No available image" 
-                style="max-width: 200px; max-height: 100%px;">
-        </td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Yakovlev Yak-38</td>
-        <td>Multi-Role Fighter</td>
-        <td><3</td>
-        <td>Russia</td>
-       <td style="padding: 0.5em; text-align: center;">
-            <img src="" 
-                alt="No available image" 
-                style="max-width: 200px; max-height: 100%px;">
-        </td>
-        <td>3 airframes in long-term storage as of 2007</td>
-    </tr>
-    <tr>
-        <td>Sukhoi Su-30SM</td>
-        <td>Multi-Role Fighter</td>
-        <td>1</td>
-        <td>Russia</td>
-        <td style="padding: 0.5em; text-align: center;">
-            <img src="" 
-                alt="No available image" 
-                style="max-width: 200px; max-height: 100%px;">
-        </td>
-        <td>One Russian pilot defected to the PDZ with a SU-30SM in 2018</td>
-    </tr>
+        <h2>Air Force Equipment</h2>
+        <table>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Quantity</th>
+            <th>Origin</th>
+            <th>Photo</th>
+            <th>Notes</th>
+        </tr>
+        <!-- Airsup -->
+        <tr>
+            <td>Mikoyan-Gurevich MiG-21</td>
+            <td>Fighter</td>
+            <td>110</td>
+            <td>Russia</td>
+            <td style="padding: 0.5em; text-align: center;">
+                <img src="https://i.postimg.cc/2jwKMt2R/mig21.png" 
+                    alt="No Available Image" 
+                    style="max-width: 200px; max-height: 100%px;">
+            </td>
+            <td>77 operational airframes and 33 airframes in long-term storage as of 2019</td>
+        </tr>
+        <tr>
+            <td>Mikoyan-Gurevich MiG-23</td>
+            <td>Fighter</td>
+            <td>104</td>
+            <td>Russia</td>
+            <td style="padding: 0.5em; text-align: center;">
+                <img src="" 
+                    alt="No available image" 
+                    style="max-width: 200px; max-height: 100%px;">
+            </td>
+            <td>88 operational airframes and 16 airframes in long-term storage as of 2019</td>
+        </tr>
+        <!-- Multirole -->
+        <tr>
+            <td>Sukhoi Su-15</td>
+            <td>Interceptor</td>
+            <td>54</td>
+            <td>Russia</td>
+            <td style="padding: 0.5em; text-align: center;">
+                <img src="https://i.postimg.cc/HL21sLd3/plane.png" 
+                    alt="No Available Image" 
+                    style="max-width: 200px; max-height: 100%px;">
+            </td>
+            <td>54 operational airframes relegated to reserve forces as of 2007</td>
+        </tr>
+        <tr>
+            <td>Mikoyan-Gurevich MiG-25</td>
+            <td>Interceptor</td>
+            <td>15</td>
+            <td>Russia</td>
+            <td style="padding: 0.5em; text-align: center;">
+                <img src="" 
+                    alt="No Available Image" 
+                    style="max-width: 200px; max-height: 100%px;">
+            </td>
+            <td>15 operational airframes as of 2019</td>
+        </tr>
+        <tr>
+            <td>Mikoyan MiG-31</td>
+            <td>Interceptor</td>
+            <td>11</td>
+            <td>Russia</td>
+            <td style="padding: 0.5em; text-align: center;">
+                <img src="" 
+                    alt="No available image" 
+                    style="max-width: 200px; max-height: 100%px;">
+            </td>
+            <td></td>
+        </tr>
+        <!-- Multirole -->
+        <tr>
+            <td>Mikoyan MiG-29</td>
+            <td>Multi-Role Fighter</td>
+            <td>18</td>
+            <td>Russia</td>
+            <td style="padding: 0.5em; text-align: center;">
+                <img src="" 
+                    alt="No available image" 
+                    style="max-width: 200px; max-height: 100%px;">
+            </td>
+            <td>18 operational airframes as of 2019</td>
+        </tr>
+        <tr>
+            <td>Sukhoi Su-27</td>
+            <td>Multi-Role Fighter</td>
+            <td>15</td>
+            <td>Russia</td>
+            <td style="padding: 0.5em; text-align: center;">
+                <img src="" 
+                    alt="No available image" 
+                    style="max-width: 200px; max-height: 100%px;">
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Yakovlev Yak-38</td>
+            <td>Multi-Role Fighter</td>
+            <td><3</td>
+            <td>Russia</td>
+            <td style="padding: 0.5em; text-align: center;">
+                <img src="" 
+                    alt="No available image" 
+                    style="max-width: 200px; max-height: 100%px;">
+            </td>
+            <td>3 airframes in long-term storage as of 2007</td>
+        </tr>
+        <tr>
+            <td>Sukhoi Su-30SM</td>
+            <td>Multi-Role Fighter</td>
+            <td>1</td>
+            <td>Russia</td>
+            <td style="padding: 0.5em; text-align: center;">
+                <img src="" 
+                    alt="No available image" 
+                    style="max-width: 200px; max-height: 100%px;">
+            </td>
+            <td>One Russian pilot defected to the PDZ with a SU-30SM in 2018</td>
+        </tr>
 
-    <!-- CAS -->
-    <tr>
-        <td>Sukhoi Su-17M4</td>
-        <td>Close Air Support</td>
-        <td><44</td>
-        <td>Russia</td>
-        <td style="padding: 0.5em; text-align: center;">
-            <img src="" 
-                alt="No available image" 
-                style="max-width: 200px; max-height: 100%px;">
-        </td>
-        <td>44 airframes in long-term storage as of 2007</td>
-    </tr>
-    <tr>
-        <td>Mikoyan MiG-27</td>
-        <td>Close Air Support</td>
-        <td>21</td>
-        <td>Russia</td>
-        <td style="padding: 0.5em; text-align: center;">
-            <img src="" 
-                alt="No available image" 
-                style="max-width: 200px; max-height: 100%px;">
-        </td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Sukhoi Su-25SM</td>
-        <td>Close Air Support</td>
-        <td>19</td>
-        <td>Russia</td>
-        <td style="padding: 0.5em; text-align: center;">
-            <img src="" 
-                alt="No available image" 
-                style="max-width: 200px; max-height: 100%px;">
-        </td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Aero L-39ZA</td>
-        <td>Light Close Air Support</td>
-        <td>12</td>
-        <td>Czech Republic</td>
-        <td style="padding: 0.5em; text-align: center;">
-            <img src="" 
-                alt="No available image" 
-                style="max-width: 200px; max-height: 100%px;">
-        </td>
-        <td></td>
-    </tr>
-    <!-- Trainer -->
-    <tr>
-        <td>Aero L-39C</td>
-        <td>Trainer</td>
-        <td>20</td>
-        <td>Czech Republic</td>
-        <td style="padding: 0.5em; text-align: center;">
-            <img src="" 
-                alt="No available image" 
-                style="max-width: 200px; max-height: 100%px;">
-        </td>
-        <td></td>
-    </tr>
-    <!-- AWACS -->
-    <!-- Transport -->
-    </table>
+        <!-- CAS -->
+        <tr>
+            <td>Sukhoi Su-17M4</td>
+            <td>Close Air Support</td>
+            <td><44</td>
+            <td>Russia</td>
+            <td style="padding: 0.5em; text-align: center;">
+                <img src="" 
+                    alt="No available image" 
+                    style="max-width: 200px; max-height: 100%px;">
+            </td>
+            <td>44 airframes in long-term storage as of 2007</td>
+        </tr>
+        <tr>
+            <td>Mikoyan MiG-27</td>
+            <td>Close Air Support</td>
+            <td>21</td>
+            <td>Russia</td>
+            <td style="padding: 0.5em; text-align: center;">
+                <img src="" 
+                    alt="No available image" 
+                    style="max-width: 200px; max-height: 100%px;">
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Sukhoi Su-25SM</td>
+            <td>Close Air Support</td>
+            <td>19</td>
+            <td>Russia</td>
+            <td style="padding: 0.5em; text-align: center;">
+                <img src="" 
+                    alt="No available image" 
+                    style="max-width: 200px; max-height: 100%px;">
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Aero L-39ZA</td>
+            <td>Light Close Air Support</td>
+            <td>12</td>
+            <td>Czech Republic</td>
+            <td style="padding: 0.5em; text-align: center;">
+                <img src="" 
+                    alt="No available image" 
+                    style="max-width: 200px; max-height: 100%px;">
+            </td>
+            <td></td>
+        </tr>
+        <!-- Trainer -->
+        <tr>
+            <td>Aero L-39C</td>
+            <td>Trainer</td>
+            <td>20</td>
+            <td>Czech Republic</td>
+            <td style="padding: 0.5em; text-align: center;">
+                <img src="" 
+                    alt="No available image" 
+                    style="max-width: 200px; max-height: 100%px;">
+            </td>
+            <td></td>
+        </tr>
+        <!-- AWACS -->
+        <!-- Transport -->
+        </table>
     </body>
 </html>

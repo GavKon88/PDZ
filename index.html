@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8" />
         <title>Homepage - WikiReal</title>
-        <link rel="icon" href="assets/favicon.png" type="image/png">
+        <script>
+            if (localStorage.getItem("darkMode") === "true") {
+                document.documentElement.classList.add("dark-mode");
+            }
+        </script>
+        <link rel="stylesheet" href="assets/css/style.css">
+        <script defer src="assets/js/darkmode.js"></script>        
+        <link rel="icon" href="assets/favicon.png" type="image/png" />
         <style>
             body {
                 margin: 0;
@@ -11,12 +18,42 @@
                 background-color: white;
                 color: #111;
                 text-align: center;
-                padding-top: 180px;
+                padding-top: 220px; /* Adjust for top bar + logo */
+            }
+
+            /* Featured bar */
+            #featured-bar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                background-color: #f7c948; /* warm yellow */
+                color: #333;
+                font-weight: bold;
+                padding: 10px 0;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+                z-index: 1100;
+                user-select: none;
+            }
+
+            #featured-bar button {
+                background: transparent;
+                border: none;
+                font-size: 1.1rem;
+                font-weight: bold;
+                color: #333;
+                cursor: pointer;
+                text-decoration: underline;
+                padding: 0;
+            }
+
+            #featured-bar button:hover {
+                color: #222;
             }
 
             .logo-container {
                 position: fixed;
-                top: 1rem;
+                top: 50px; /* below the featured bar */
                 left: 50%;
                 transform: translateX(-50%);
                 z-index: 1000;
@@ -28,21 +65,32 @@
 
             #search-container {
                 margin-top: 2rem;
+                position: relative;
+                display: inline-block;
+                width: 300px;
+                text-align: left;
             }
 
             #searchInput {
                 padding: 10px;
                 font-size: 1.2rem;
-                width: 300px;
+                width: 100%;
                 border: 1px solid #ccc;
                 border-radius: 8px;
+                box-sizing: border-box;
             }
 
             #suggestions {
-                margin: 0 auto;
-                margin-top: 1rem;
-                max-width: 300px;
-                text-align: left;
+                margin-top: 0.5rem;
+                max-height: 400px;
+                overflow-y: auto;
+                border: 1px solid #ccc;
+                border-radius: 6px;
+                background: white;
+                display: none;
+                position: absolute;
+                width: 100%;
+                z-index: 1000;
             }
 
             .suggestion {
@@ -50,22 +98,56 @@
                 background-color: #f0f0f0;
                 border-bottom: 1px solid #ddd;
                 cursor: pointer;
-                border-radius: 4px;
-                margin-bottom: 5px;
+                border-radius: 0;
+                margin: 0;
+                user-select: none;
+            }
+
+            .suggestion:last-child {
+                border-bottom: none;
             }
 
             .suggestion:hover {
                 background-color: #e0e0e0;
             }
+
+            /* Highlight matched text */
+            .matched {
+                font-weight: bold;
+                background-color: yellow;
+                border-radius: 3px;
+                padding: 0 2px;
+            }
         </style>
     </head>
     <body>
+        <div>
+            <button id="darkModeToggle" style="
+                position: fixed;
+                top: 140px;
+                left: 10px;
+                font-size: 0.9rem;
+                padding: 6px 10px;
+                background-color: #ddd;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                z-index: 1000;
+                ">
+                Toggle Dark Mode
+            </button>
+        </div>
+        <div id="featured-bar">
+            Featured Article: 
+            <button onclick="window.location.href='zegracrisis.html'">Zegra Secession Crisis</button>
+        </div>
+
         <div class="logo-container">
-            <img src="https://i.postimg.cc/pd9yM90P/head2.png" alt="Header">
+            <img src="https://i.postimg.cc/pd9yM90P/head2.png" alt="Header" />
         </div>
 
         <div id="search-container">
-            <input type="text" id="searchInput" placeholder="Search pages...">
+            <input type="text" id="searchInput" placeholder="Search pages..." autocomplete="off" />
             <div id="suggestions"></div>
         </div>
 
@@ -86,6 +168,16 @@
             const input = document.getElementById("searchInput");
             const suggestions = document.getElementById("suggestions");
 
+            function escapeRegExp(string) {
+                return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            }
+
+            function highlightMatch(text, filter) {
+                if (!filter) return text;
+                const regex = new RegExp(`(${escapeRegExp(filter)})`, 'gi');
+                return text.replace(regex, '<span class="matched">$1</span>');
+            }
+
             function showSuggestions(filter) {
                 suggestions.innerHTML = "";
                 let filtered;
@@ -95,33 +187,40 @@
                 } else {
                     const lowerFilter = filter.toLowerCase();
                     filtered = pages.filter(page =>
-                    page.name.toLowerCase().includes(lowerFilter)
+                        page.name.toLowerCase().includes(lowerFilter)
                     );
                 }
 
                 filtered.forEach(page => {
                     const div = document.createElement("div");
                     div.classList.add("suggestion");
-                    div.textContent = page.name;
-                    div.onclick = () => window.location.href = page.url;
+                    div.innerHTML = highlightMatch(page.name, filter);
+                    div.onclick = () => {
+                        window.location.href = page.url;
+                    };
                     suggestions.appendChild(div);
                 });
+
+                suggestions.style.display = filtered.length ? "block" : "none";
             }
 
-            input.addEventListener("input", function () {
+            input.addEventListener("focus", () => {
                 const value = input.value.trim();
-                if (value === "") {
-                    showSuggestions();
-                } else {
-                    showSuggestions(value);
+                showSuggestions(value);
+            });
+
+            input.addEventListener("input", () => {
+                const value = input.value.trim();
+                showSuggestions(value);
+            });
+
+            document.addEventListener("click", (event) => {
+                if (!input.contains(event.target) && !suggestions.contains(event.target)) {
+                    suggestions.style.display = "none";
                 }
             });
 
-                input.addEventListener("focus", function () {
-                    if (input.value.trim() === "") {
-                        showSuggestions();
-                    }
-                });
+            suggestions.style.display = "none";
         </script>
     </body>
 </html>
