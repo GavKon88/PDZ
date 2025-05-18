@@ -63,3 +63,7 @@ html.dark-mode .equipment-table img {
 html.dark-mode img#logo {
     filter: invert(1);
 }
+
+html.dark-mode .matched {
+    background-color: rgb(23, 0, 156);
+}
