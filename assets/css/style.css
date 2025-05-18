@@ -1,4 +1,3 @@
-/* Base styles */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -14,7 +13,6 @@ input,
     border: 1px solid #ccc;
 }
 
-/* Dark mode styles - applied when html has class 'dark-mode' */
 html.dark-mode body {
     background-color: #111;
     color: #f0f0f0;
@@ -42,4 +40,6 @@ html.dark-mode .infobox th {
     color: #f1f1f1;
 }
 
-/* Other styles remain unchanged */
+html.dark-mode img#logo {
+    filter: invert(1);
+}
