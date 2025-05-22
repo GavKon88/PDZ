@@ -10,7 +10,8 @@
         </script>
         <link rel="stylesheet" href="assets/css/style.css">
         <script defer src="assets/js/darkmode.js"></script>
-        <script defer src="assets/js/univsearch.js"></script>     
+        <script defer src="assets/js/univsearch.js"></script>
+        <script defer src="assets/js/popup.js"></script>          
         <link rel="icon" href="assets/favicon.png" type="image/png">
         <style>
         body {
@@ -100,7 +101,8 @@
             <td style="padding: 0.5em; text-align: center;">
                 <img src="https://i.postimg.cc/Bn4RbgvM/T-80BV.png" 
                     alt="No Available Image" 
-                    style="max-width: 100%; max-height: 120px;">
+                    style="max-width: 100%; max-height: 120px;"
+                    onclick="openPopup('assets/military/T-80BV.png', 'desc')">
             </td>
             <td></td>
         </tr>
@@ -112,7 +114,8 @@
             <td style="padding: 0.5em; text-align: center;">
                 <img src="" 
                     alt="No available image" 
-                    style="max-width: 200px; max-height: 100%px;">
+                    style="max-width: 200px; max-height: 100%px;"
+                    onclick="openPopup('assets/military/image.png', 'desc')">
             </td>
             <td></td>
         </tr>
@@ -120,7 +123,7 @@
 
         <h2>Zegra Directorate Air Forces (ZDAF)</h2>
         <p>The Zegra Directorate Air Forces (ZDAF) are a heavily centralized air wing under direct command of the General Directorate Staff. The ZDAF operates primarily in support of ground forces and internal security operations. Like the ground forces, air power is doctrinally tied to the principle of population control and strategic denial of mobility to enemy formations.</p>
-        <p>During the beginning of the <a href="zegracrisis.html">Zegra secession crisis</a>, militias were able to storm relatively disorganized Russian airbases and capture a large amount of stored legacy airfames in addition to several more modern airframes. Recent efforts under the Zegra Technological Initiative aim to incorporate indigenous drone and EW (electronic warfare) capability into the air wing.</p>
+        <p>During the beginning of the <a href="zegracrisis.html">Zegra secession crisis</a>, militias were able to storm relatively disorganized Russian airbases and capture a large amount of stored legacy airfames in addition to several more modern airframes. Recent efforts under the <a href="ZTI.html">Zegra Technological Initiative</a> aim to incorporate indigenous drone and EW (electronic warfare) capability into the air wing.</p>
 
         <h2>Air Force Equipment</h2>
         <table>
@@ -134,28 +137,30 @@
         </tr>
         <!-- Airsup -->
         <tr>
-            <td>Mikoyan-Gurevich MiG-21</td>
+            <td>Mikoyan-Gurevich MiG-21MF</td>
             <td>Fighter</td>
             <td>110</td>
             <td>Russia</td>
             <td style="padding: 0.5em; text-align: center;">
-                <img src="https://i.postimg.cc/2jwKMt2R/mig21.png" 
+                <img src="assets/military/mig21.png" 
                     alt="No Available Image" 
-                    style="max-width: 200px; max-height: 100%px;">
+                    style="max-width: 200px; max-height: 100%px;"
+                    onclick="openPopup('assets/military/mig21.png', 'Two Zegran Mig-21MFs flying in formation over the Domoraz Air Force Base, circa. 2008')">
             </td>
             <td>77 operational airframes and 33 airframes in long-term storage as of 2019</td>
         </tr>
         <tr>
-            <td>Mikoyan-Gurevich MiG-23</td>
+            <td>Mikoyan-Gurevich MiG-23UDL</td>
             <td>Fighter</td>
-            <td>104</td>
+            <td>74</td>
             <td>Russia</td>
             <td style="padding: 0.5em; text-align: center;">
-                <img src="" 
+                <img src="assets/military/mig23.png" 
                     alt="No available image" 
-                    style="max-width: 200px; max-height: 100%px;">
+                    style="max-width: 200px; max-height: 100%px;"
+                    onclick="openPopup('assets/military/mig23.png', 'ZTI-improved Mig-23UDL during a flight demo, circa. 2021')">
             </td>
-            <td>88 operational airframes and 16 airframes in long-term storage as of 2019</td>
+            <td>74 operational airframes as of 2019. All models converted to domestically upgraded Mig-23UDL (Универсальный Дальний Легкий [UDL], translated  Universal Long-Range Lightened)</td>
         </tr>
         <!-- Multirole -->
         <tr>
@@ -164,9 +169,10 @@
             <td>54</td>
             <td>Russia</td>
             <td style="padding: 0.5em; text-align: center;">
-                <img src="https://i.postimg.cc/HL21sLd3/plane.png" 
+                <img src="assets/military/su15.png" 
                     alt="No Available Image" 
-                    style="max-width: 200px; max-height: 100%px;">
+                    style="max-width: 200px; max-height: 100%px;"
+                    onclick="openPopup('assets/military/su15.png', 'Zegran pilot Maj. Alexei Sokolov posing from the cockpit of his Su-15, circa. 2004')">
             </td>
             <td>54 operational airframes relegated to reserve forces as of 2007</td>
         </tr>
@@ -178,7 +184,8 @@
             <td style="padding: 0.5em; text-align: center;">
                 <img src="" 
                     alt="No Available Image" 
-                    style="max-width: 200px; max-height: 100%px;">
+                    style="max-width: 200px; max-height: 100%px;"
+                    onclick="openPopup('assets/military/image.png', 'desc')">
             </td>
             <td>15 operational airframes as of 2019</td>
         </tr>
@@ -190,7 +197,8 @@
             <td style="padding: 0.5em; text-align: center;">
                 <img src="" 
                     alt="No available image" 
-                    style="max-width: 200px; max-height: 100%px;">
+                    style="max-width: 200px; max-height: 100%px;"
+                    onclick="openPopup('assets/military/image.png', 'desc')">
             </td>
             <td></td>
         </tr>
@@ -203,7 +211,8 @@
             <td style="padding: 0.5em; text-align: center;">
                 <img src="" 
                     alt="No available image" 
-                    style="max-width: 200px; max-height: 100%px;">
+                    style="max-width: 200px; max-height: 100%px;"
+                    onclick="openPopup('assets/military/image.png', 'desc')">
             </td>
             <td>18 operational airframes as of 2019</td>
         </tr>
@@ -215,7 +224,8 @@
             <td style="padding: 0.5em; text-align: center;">
                 <img src="" 
                     alt="No available image" 
-                    style="max-width: 200px; max-height: 100%px;">
+                    style="max-width: 200px; max-height: 100%px;"
+                    onclick="openPopup('assets/military/image.png', 'desc')">
             </td>
             <td></td>
         </tr>
@@ -227,7 +237,8 @@
             <td style="padding: 0.5em; text-align: center;">
                 <img src="" 
                     alt="No available image" 
-                    style="max-width: 200px; max-height: 100%px;">
+                    style="max-width: 200px; max-height: 100%px;"
+                    onclick="openPopup('assets/military/image.png', 'desc')">
             </td>
             <td>3 airframes in long-term storage as of 2007</td>
         </tr>
@@ -239,7 +250,8 @@
             <td style="padding: 0.5em; text-align: center;">
                 <img src="" 
                     alt="No available image" 
-                    style="max-width: 200px; max-height: 100%px;">
+                    style="max-width: 200px; max-height: 100%px;"
+                    onclick="openPopup('assets/military/image.png', 'desc')">
             </td>
             <td>One Russian pilot defected to the PDZ with a SU-30SM in 2018</td>
         </tr>
@@ -253,7 +265,8 @@
             <td style="padding: 0.5em; text-align: center;">
                 <img src="" 
                     alt="No available image" 
-                    style="max-width: 200px; max-height: 100%px;">
+                    style="max-width: 200px; max-height: 100%px;"
+                    onclick="openPopup('assets/military/image.png', 'desc')">
             </td>
             <td>44 airframes in long-term storage as of 2007</td>
         </tr>
@@ -265,7 +278,8 @@
             <td style="padding: 0.5em; text-align: center;">
                 <img src="" 
                     alt="No available image" 
-                    style="max-width: 200px; max-height: 100%px;">
+                    style="max-width: 200px; max-height: 100%px;"
+                    onclick="openPopup('assets/military/image.png', 'desc')">
             </td>
             <td></td>
         </tr>
@@ -277,7 +291,8 @@
             <td style="padding: 0.5em; text-align: center;">
                 <img src="" 
                     alt="No available image" 
-                    style="max-width: 200px; max-height: 100%px;">
+                    style="max-width: 200px; max-height: 100%px;"
+                    onclick="openPopup('assets/military/image.png', 'desc')">
             </td>
             <td></td>
         </tr>
@@ -289,7 +304,8 @@
             <td style="padding: 0.5em; text-align: center;">
                 <img src="" 
                     alt="No available image" 
-                    style="max-width: 200px; max-height: 100%px;">
+                    style="max-width: 200px; max-height: 100%px;"
+                    onclick="openPopup('assets/military/image.png', 'desc')">
             </td>
             <td></td>
         </tr>
@@ -302,12 +318,20 @@
             <td style="padding: 0.5em; text-align: center;">
                 <img src="" 
                     alt="No available image" 
-                    style="max-width: 200px; max-height: 100%px;">
+                    style="max-width: 200px; max-height: 100%px;"
+                    onclick="openPopup('assets/military/image.png', 'desc')">
             </td>
             <td></td>
         </tr>
         <!-- AWACS -->
         <!-- Transport -->
         </table>
+        <div id="popup" class="popup-overlay" onclick="closePopup(event)">
+            <div class="popup-content" onclick="event.stopPropagation()">
+                <button class="close-btn" onclick="closePopup(event)">×</button>
+                <img id="popup-img" class="popup-img" src="" alt="">
+                <p id="popup-desc"></p>
+            </div>
+        </div>
     </body>
 </html>

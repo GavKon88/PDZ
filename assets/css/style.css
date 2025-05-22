@@ -79,6 +79,38 @@ html.dark-mode #univSuggestions {
     border-color: #555;
 }
 
+html.dark-mode .popup-overlay {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+html.dark-mode .popup-content {
+    background: #1a1a1a;
+    color: #f0f0f0;
+    border: 1px solid #444;
+    max-width: 80vw;
+    max-height: 80vh;
+    width: 40vw;
+    height: 75vh;
+    overflow: auto;
+}
+
+html.dark-mode .close-btn {
+    color: #f0f0f0;
+}
+
+html.dark-mode .close-btn:hover {
+    color: #ff6b6b;
+}
+
+html.dark-mode .popup-img {
+    filter: brightness(0.9);
+}
+
+html.dark-mode .close-btn {
+    color: white;
+}
+
+
 
 
 #univ-search-container {
@@ -131,4 +163,52 @@ html.dark-mode #univSuggestions {
     padding: 0 2px;
 }
 
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
 
+.popup-content {
+    background: white;
+    padding: 1em;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 800vw;
+    max-height: 80vh;
+    width: 40vw;
+    height: 75vh;
+    overflow: auto;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+    cursor: pointer;
+    font-weight: bold;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+}
+
+.thumbnail {
+    max-width: 200px;
+    max-height: 100px;
+    cursor: pointer;
+}
+
+.popup-img {
+    max-width: 100%;
+    max-height: 65vh;
+    height: auto;
+    width: auto;
+}
