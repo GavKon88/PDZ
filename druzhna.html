@@ -10,7 +10,8 @@
         </script>
         <link rel="stylesheet" href="assets/css/style.css">
         <script defer src="assets/js/darkmode.js"></script>
-        <script defer src="assets/js/univsearch.js"></script>     
+        <script defer src="assets/js/univsearch.js"></script>
+        <script defer src="assets/js/popup.js"></script>     
         <link rel="icon" href="assets/favicon.png" type="image/png">
         <style>
         body {
@@ -115,7 +116,7 @@
         
 
         <div class="infobox">
-            <img src="https://i.postimg.cc/Xqdht0BV/street2.png" alt="Three Russian Federation soldiers running across a street during the Druzhna Blackout (October 1992)." class="incident-image">
+            <img src="assets/general/street2.png" alt="[RETAKE w/o LIGHTING] Three Russian Federation soldiers running across a street during the Druzhna Blackout (October 1992)." class="incident-image" onclick="openPopup('assets/general/street.png', 'Three Russian Federation soldiers cross a street during the Druzhna Blackout (October 1992).')">
             <p style="margin-top: 0.5em;">Three Russian Federation soldiers running across a street during the Druzhna Blackout (October 1992).</p>           
         </div>
 
@@ -127,5 +128,12 @@
         
         <h2>Legacy</h2>
         <p>The <em>Druzhna Blackout Arrests</em> are remembered as a turning point in Zegra’s struggle for self-determination. The event symbolized the lengths to which the Russian Federation would go to maintain control, and further solidified support for Zegra’s eventual secession. The memory of those disappeared during the blackout continues to inspire activism and political discourse throughout the region.</p>
+        <div id="popup" class="popup-overlay" onclick="closePopup(event)">
+            <div class="popup-content" onclick="event.stopPropagation()">
+                <button class="close-btn" onclick="closePopup(event)">×</button>
+                <img id="popup-img" class="popup-img" src="" alt="">
+                <p id="popup-desc"></p>
+            </div>
+        </div>
     </body>
 </html>

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <script defer src="assets/js/darkmode.js"></script>
     <script defer src="assets/js/univsearch.js"></script>
+    <script defer src="assets/js/popup.js"></script>     
     <link rel="icon" href="assets/favicon.png" type="image/png">
     <style>
       body {
@@ -90,7 +91,10 @@
     <div class="infobox">
       <table>
         <tr><th colspan="2" style="font-size: 18px;">Konstantin Vezhar</th></tr>
-        <tr><td><img src="https://i.postimg.cc/25c2qWwg/konst.png" alt="Vezhar during a tour of a military hospital in 2008"></tr>
+        <tr><td><img src="assets/general/Vezhar.png"
+                  alt="" 
+                  onclick="openPopup('assets/general/Vezhar.png', 'Vezhar during a tour of a military hospital circa. 2008')">
+                </tr>
         <tr><td style="font-size: 12px;">Vezhar during a tour of a newly constructed military hospital (2008)</td></tr>
         <tr><td> </tr>
         <tr><td> </tr>
@@ -187,5 +191,12 @@
 
       univSuggestions.style.display = "none";
     </script>
+    <div id="popup" class="popup-overlay" onclick="closePopup(event)">
+      <div class="popup-content" onclick="event.stopPropagation()">
+          <button class="close-btn" onclick="closePopup(event)">×</button>
+          <img id="popup-img" class="popup-img" src="" alt="">
+          <p id="popup-desc"></p>
+      </div>
+    </div>
   </body>
 </html>

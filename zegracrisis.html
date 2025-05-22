@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <script defer src="assets/js/darkmode.js"></script>
     <script defer src="assets/js/univsearch.js"></script>
+    <script defer src="assets/js/popup.js"></script>
     </script> 
     <link rel="icon" href="assets/favicon.png" type="image/png">
     <style>
@@ -84,13 +85,13 @@
         <tr>
           <tr><th colspan="2">Flag</th></tr>
           <td colspan="2" style="text-align: center; padding-bottom: 0.5em;">
-            <img src="https://i.postimg.cc/k5vLTwmZ/flag.png" alt="PDZ Flag" style="max-width: 100%; height: auto; border: 1px solid #444; border-radius: 4px;">
+            <img src="assets/general/flag.svg" alt="PDZ Flag" style="max-width: 100%; height: auto; border: 1px solid #444; border-radius: 4px;" onclick="openPopup('assets/general/flag.svg', 'Flag of the PDZ')">
           </td>
         </tr>
         <tr>
           <tr><th colspan="2">Location</th></tr>
           <td colspan="2" style="text-align: center; padding-bottom: 0.5em;">
-            <img src="https://i.postimg.cc/ZKM1DjMs/map.png" alt="Map" style="max-width: 100%; height: auto; border: 1px solid #444; border-radius: 4px;">
+            <img src="assets/general/map.png" alt="Map" style="max-width: 100%; height: auto; border: 1px solid #444; border-radius: 4px;" onclick="openPopup('assets/general/map.png', 'Map of the PDZ with relation to previous large cities')">
           </td>
         </tr>
         <tr><th colspan="2">Zegra Secession Crisis</th></tr>
@@ -125,7 +126,7 @@
         </ul>
       </div>
       <div class="infobox">
-        <img src="https://i.postimg.cc/przdhDDZ/street.png" alt="Two Russian Federation soldiers securing a street during the Druzhna Blackout" style="width: 100%; height: auto; border: 1px solid #888;">
+        <img src="assets/general/street.png" alt="Two Russian Federation soldiers securing a street during the Druzhna Blackout" style="width: 100%; height: auto; border: 1px solid #888;" onclick="openPopup('assets/general/street.png', 'Two Russian Federation soldiers secure a street corner during the Druzhna Blackout (October 1992).')">
         <p style="margin-top: 0.5em;">Two Russian Federation soldiers securing a street during the Druzhna Blackout (October 1992).</p>
       </div>
     </div>
@@ -148,5 +149,12 @@
     <p>Morozov has stoked nationalist fervor through relentless propaganda campaigns, promoting the narrative of a "betrayed Zegra" surrounded by enemies. Military parades and border skirmishes have become routine, and youth organizations have been repurposed into paramilitary prep schools. He has framed Zegra’s future as a moral crusade — not only for survival, but for the reclamation of "greater Zegra" territories beyond current borders.</p>
     <p>While technological modernization efforts such as the Zegra Technological Initiative (ZTI) have seen some success, these are increasingly bent toward surveillance, military AI, and cyber-warfare capabilities. Morozov's consolidation of power has earned admiration among hardliners but alarmed moderates and foreign observers alike.</p>
     <p>Critics have dubbed his policies the "National Fortress Doctrine," likening Zegra to a closed garrison state. International observers note a sharp rise in disappearances, forced labor sentences, and ideological re-education programs. Nevertheless, Morozov maintains strong support within the military-intelligence elite and among nationalist factions that view his rule as a necessary bulwark against foreign manipulation.</p>
+    <div id="popup" class="popup-overlay" onclick="closePopup(event)">
+      <div class="popup-content" onclick="event.stopPropagation()">
+          <button class="close-btn" onclick="closePopup(event)">×</button>
+          <img id="popup-img" class="popup-img" src="" alt="">
+          <p id="popup-desc"></p>
+      </div>
+    </div>
   </body>
 </html>
