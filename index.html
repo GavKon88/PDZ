@@ -65,7 +65,7 @@
                     margin-top: 2rem;
                     position: relative;
                     display: inline-block;
-                    width: 300px;
+                    width: 500px;
                     text-align: left;
                 }
 
@@ -87,7 +87,7 @@
                     background: white;
                     display: none;
                     position: absolute;
-                    width: 100%;
+                    width: 320px;
                     z-index: 1000;
                 }
 
@@ -116,8 +116,32 @@
                     border-radius: 3px;
                     padding: 0 2px;
                 }
+                
+                .ad-container {
+                    width: 300px;
+                    margin: 2rem auto;
+                    text-align: center;
+                    border: 2px dashed #aaa;
+                    border-radius: 10px;
+                    padding: 0.5rem;
+                    background-color: #fefbe9;
+                    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+                }
+
+                #ad-image {
+                    width: 100%;
+                    height: auto;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    transition: transform 0.2s ease;
+                }
+
+                #ad-image:hover {
+                    transform: scale(1.02);
+                }
             </style>
         </head>
+
         <body>
             <div>
                 <button id="darkModeToggle" style="
@@ -145,8 +169,22 @@
             </div>
 
             <div id="search-container">
-                <input type="text" id="searchInput" placeholder="Search pages..." autocomplete="off" />
-                <div id="suggestions"></div>    
+                <div style="display: flex; gap: 0.5rem; align-items: center;">
+                    <input type="text" id="searchInput" placeholder="Search pages..." autocomplete="off" />
+                    <button id="luckyButton" style="
+                        font-size: 1rem;
+                        padding: 8px 14px;
+                        background-color: #ffda6b;
+                        border: none;
+                        border-radius: 6px;
+                        cursor: pointer;
+                        font-weight: bold;
+                        white-space: nowrap;
+                    ">
+                        I'm Feeling Lucky
+                    </button>
+                </div>
+                <div id="suggestions"></div>
             </div>
 
             <script>
@@ -219,6 +257,65 @@
                 });
 
                 suggestions.style.display = "none";
+            </script>
+            <script>
+                document.getElementById("luckyButton").addEventListener("click", () => {
+                    const randomPage = pages[Math.floor(Math.random() * pages.length)];
+                    window.location.href = randomPage.url;
+                });
+            </script>
+            <script>
+                const fakeAds = [
+                    {
+                        img: "assets/ads/",
+                        url: ""
+                    },
+                    {
+                        img: "assets/ads/",
+                        url: ""
+                    },
+                    {
+                        img: "assets/ads/",
+                        url: ""
+                    },
+                    {
+                        img: "assets/ads/",
+                        url: ""
+                    }
+                ];
+                const ad = fakeAds[Math.floor(Math.random() * fakeAds.length)];
+                document.getElementById("ad-image").src = ad.img;
+                document.getElementById("ad-link").href = ad.url;
+            </script>
+
+            <div id="adbait" style="height:1px; width:1px; position:absolute; left:-9999px;">
+                <div class="ad-banner"></div>
+            </div>
+            <script>
+                window.addEventListener("load", () => {
+                    const bait = document.getElementById("adbait");
+                    const blocked = !bait || bait.offsetHeight === 0 || bait.offsetParent === null;
+
+                    if (blocked) {
+                        const msg = document.createElement("div");
+                        msg.innerText = "mi no know if dis site work wid an adblocker mi bredda. turn it off fi dis site mi bredda.";
+                        msg.style = `
+                            position: fixed;
+                            bottom: 20px;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            background: #ffe49b;
+                            color: #222;
+                            border: 2px solid #aa8;
+                            border-radius: 10px;
+                            padding: 12px 20px;
+                            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+                            z-index: 2000;
+                            font-size: 1rem;
+                        `;
+                        document.body.appendChild(msg);s
+                    }
+                });
             </script>
         </body>
     </html>

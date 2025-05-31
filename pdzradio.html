@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Story Broadcast Radio</title>
+        <style>
+            body {
+            font-family: monospace;
+            background-color: #1e1e1e;
+            color: #f0f0f0;
+            text-align: center;
+            padding: 2em;
+            }
+            #play-btn {
+            padding: 12px 24px;
+            font-size: 18px;
+            background-color: #c23636;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 2em;
+            }
+            #segment-info {
+            margin: 1em 0;
+            font-size: 1.1em;
+            }
+            canvas {
+            width: 100%;
+            height: 100px;
+            background-color: #111;
+            border-radius: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>📻 Story Broadcast Radio</h1>
+        <p>A synchronized radio stream for everyone.</p>
+        <button id="play-btn">Start Listening</button>
+
+        <div id="segment-info"></div>
+        <canvas id="visualizer"></canvas>
+        <audio id="radio-audio" preload="auto"></audio>
+
+        <script>
+            const audio = document.getElementById("radio-audio");
+            const playBtn = document.getElementById("play-btn");
+            const segmentInfo = document.getElementById("segment-info");
+            const canvas = document.getElementById("visualizer");
+            const ctx = canvas.getContext("2d");
+
+            // Define different daily playlists
+            const playlists = [
+            [
+                { start: 0, title: "Крепость в буре" },
+                { start: 186, title: "Зегра стоит!" },
+                { start: 340, title: "Под чужим солнцем" },
+                { start: 571, title: "Железный Пульс" },
+                { start: 737, title: "Нет правды в их свете" },
+            ],
+            ];
+
+            // Select today's playlist
+            const day = new Date().getDay();
+            const segments = playlists[day % playlists.length];
+            const broadcastLength = segments[segments.length - 1].start + 300; // Add end padding
+
+            function getBroadcastOffset() {
+            const now = Math.floor(Date.now() / 1000);
+            return now % broadcastLength;
+            }
+
+            function getCurrentSegment(offset) {
+            for (let i = 0; i < segments.length - 1; i++) {
+                if (offset >= segments[i].start && offset < segments[i + 1].start) {
+                return segments[i];
+                }
+            }
+            return segments[segments.length - 1];
+            }
+
+            playBtn.addEventListener("click", () => {
+            audio.src = "assets/music/music.mp3"; // Replace with your hosted MP3
+
+            audio.addEventListener("loadedmetadata", () => {
+                const offset = getBroadcastOffset();
+                const segment = getCurrentSegment(offset);
+                audio.currentTime = offset;
+                audio.play();
+                segmentInfo.textContent = `Now Playing: ${segment.title}`;
+            });
+
+            playBtn.disabled = true;
+            playBtn.textContent = "Now Playing";
+            });
+
+            // Visualizer setup
+            const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            const analyser = audioCtx.createAnalyser();
+            analyser.fftSize = 256;
+            const bufferLength = analyser.frequencyBinCount;
+            const dataArray = new Uint8Array(bufferLength);
+
+            const source = audioCtx.createMediaElementSource(audio);
+            source.connect(analyser);
+            analyser.connect(audioCtx.destination);
+
+            function drawVisualizer() {
+            requestAnimationFrame(drawVisualizer);
+            analyser.getByteFrequencyData(dataArray);
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            const barWidth = (canvas.width / bufferLength) * 2.5;
+            let x = 0;
+
+            for (let i = 0; i < bufferLength; i++) {
+                const barHeight = dataArray[i];
+                ctx.fillStyle = `rgb(${barHeight + 100}, 50, 50)`;
+                ctx.fillRect(x, canvas.height - barHeight / 2, barWidth, barHeight / 2);
+                x += barWidth + 1;
+            }
+            }
+
+            audio.addEventListener("play", () => {
+            if (audioCtx.state === "suspended") {
+                audioCtx.resume();
+            }
+            drawVisualizer();
+            });
+        </script>
+    </body>
+</html>
