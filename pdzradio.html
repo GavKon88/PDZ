@@ -64,7 +64,7 @@
             // Select today's playlist
             const day = new Date().getDay();
             const segments = playlists[day % playlists.length];
-            const broadcastLength = segments[segments.length - 1].start + 300; // Add end padding
+            const broadcastLength = segments[segments.length - 1].start + 5; // Add end padding
 
             function getBroadcastOffset() {
             const now = Math.floor(Date.now() / 1000);
