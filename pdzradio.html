@@ -37,7 +37,7 @@
     <body>
         <h1>📻 Story Broadcast Radio</h1>
         <p>A synchronized radio stream for everyone.</p>
-        <button id="play-btn">Start Listening</button>
+        <button id="play-btn">Tune In</button>
 
         <div id="segment-info"></div>
         <canvas id="visualizer"></canvas>
@@ -88,7 +88,12 @@
                 const segment = getCurrentSegment(offset);
                 audio.currentTime = offset;
                 audio.play();
-                segmentInfo.textContent = `Now Playing: ${segment.title}`;
+
+                setInterval(() => {
+                    const currentTime = audio.currentTime;
+                    const currentSegment = getCurrentSegment(currentTime);
+                    segmentInfo.textContent = `Now Playing: ${currentSegment.title}`;
+                }, 1000);
             });
 
             playBtn.disabled = true;
