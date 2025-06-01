@@ -92,7 +92,7 @@
                 setInterval(() => {
                     const currentTime = audio.currentTime;
                     const currentSegment = getCurrentSegment(currentTime);
-                    segmentInfo.textContent = `Now Playing: ${currentSegment.title}`;
+                    segmentInfo.textContent = `Сейчас играет: ${currentSegment.title}`;
                 }, 1000);
             });
 
@@ -103,7 +103,7 @@
             });
 
             playBtn.disabled = true;
-            playBtn.textContent = "Сейчас играет:";
+            playBtn.textContent = "играю...";
             });
 
             // Visualizer setup
