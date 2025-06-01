@@ -93,15 +93,15 @@
             return segments[segments.length - 1];
             }
 
+            const volumeSlider = document.getElementById("volume-slider");
+            volumeSlider.addEventListener("input", (e) => {
+                audio.volume = e.target.value;
+            });
+
             playBtn.addEventListener("click", () => {
                 audio.src = "assets/music/music.mp3";
-                audio.volume = e.target.value;
-                
+
                 audio.addEventListener("loadedmetadata", () => {
-                    const volumeSlider = document.getElementById("volume-slider");
-                    volumeSlider.addEventListener("input", (e) => {
-                        audio.volume = e.target.value;
-                    });
                     const offset = getBroadcastOffset();
                     const segment = getCurrentSegment(offset);
                     audio.currentTime = offset;
