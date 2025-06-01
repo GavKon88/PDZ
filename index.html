@@ -118,7 +118,7 @@
                 }
                 
                 .ad-container {
-                    width: 300px;
+                    width: 250px;
                     margin: 2rem auto;
                     text-align: center;
                     border: 2px dashed #aaa;
@@ -129,7 +129,7 @@
                 }
 
                 #ad-image {
-                    width: 100%;
+                    width: 83%;
                     height: auto;
                     border-radius: 6px;
                     cursor: pointer;
@@ -138,6 +138,63 @@
 
                 #ad-image:hover {
                     transform: scale(1.02);
+                }
+
+                .side-ad {
+                    position: fixed;
+                    top: 0;
+                    width: 250px;
+                    height: 83vh;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 900;
+                }
+
+                .side-ad img {
+                    max-height: 83%;
+                    width: auto;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    box-shadow: 0 0 12px rgba(0,0,0,0.2);
+                    transition: transform 0.2s ease;
+                }
+
+                .side-ad img:hover {
+                    transform: scale(1.02);
+                }
+
+                .side-ad.ad-right {
+                    right: 20px; /* Adds space from the right edge */
+                    width: 240px;
+                    height: 800px;
+                    position: fixed;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 900;
+                }
+
+                .side-ad.ad-right img {
+                    max-width: 100%;
+                    max-height: 100%;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    box-shadow: 0 0 12px rgba(0,0,0,0.2);
+                    transition: transform 0.2s ease;
+                }
+
+                .side-ad.ad-right img:hover {
+                    transform: scale(1.02);
+                }
+
+                @media (min-width: 1400px) {
+                    body {
+                        padding-left: 320px;
+                        padding-right: 320px;
+                    }
                 }
             </style>
         </head>
@@ -185,6 +242,12 @@
                     </button>
                 </div>
                 <div id="suggestions"></div>
+            </div>
+
+            <div class="side-ad ad-right">
+                <a id="right-ad-link" href="#" target="_blank" rel="noopener noreferrer">
+                    <img id="right-ad-img" src="" alt="Right Ad" />
+                </a>
             </div>
 
             <script>
@@ -266,26 +329,19 @@
             </script>
             <script>
                 const fakeAds = [
-                    {
-                        img: "assets/ads/",
-                        url: ""
-                    },
-                    {
-                        img: "assets/ads/",
-                        url: ""
-                    },
-                    {
-                        img: "assets/ads/",
-                        url: ""
-                    },
-                    {
-                        img: "assets/ads/",
-                        url: ""
-                    }
+                    { img: "assets/ads/ad1.png", url: "pdzradio.html" },
+                    /*{ img: "assets/ads/ad2.png", url: "https://example.com/ad2" },
+                    { img: "assets/ads/ad3.png", url: "https://example.com/ad3" },
+                    { img: "assets/ads/ad4.png", url: "https://example.com/ad4" }*/
                 ];
-                const ad = fakeAds[Math.floor(Math.random() * fakeAds.length)];
-                document.getElementById("ad-image").src = ad.img;
-                document.getElementById("ad-link").href = ad.url;
+
+                function pickRandomAd() {
+                    return fakeAds[Math.floor(Math.random() * fakeAds.length)];
+                }
+                const rightAd = pickRandomAd();
+
+                document.getElementById("right-ad-img").src = rightAd.img;
+                document.getElementById("right-ad-link").href = rightAd.url;
             </script>
 
             <div id="adbait" style="height:1px; width:1px; position:absolute; left:-9999px;">
