@@ -35,9 +35,9 @@
         </style>
     </head>
     <body>
-        <h1>📻 Story Broadcast Radio</h1>
-        <p>A synchronized radio stream for everyone.</p>
-        <button id="play-btn">Tune In</button>
+        <h1>Интернет-радио «Голос Дирекции»</h1>
+        <p>частота 914.7, национальное вещание Зегра</p>
+        <button id="play-btn">Настройтесь на</button>
 
         <div id="segment-info"></div>
         <canvas id="visualizer"></canvas>
@@ -96,8 +96,14 @@
                 }, 1000);
             });
 
+            audio.addEventListener("ended", () => {
+                const offset = getBroadcastOffset();
+                audio.currentTime = offset;
+                audio.play();
+            });
+
             playBtn.disabled = true;
-            playBtn.textContent = "Now Playing";
+            playBtn.textContent = "Сейчас играет:";
             });
 
             // Visualizer setup
