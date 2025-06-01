@@ -94,40 +94,41 @@
             }
 
             playBtn.addEventListener("click", () => {
-            audio.src = "assets/music/music.mp3";
-
-            audio.addEventListener("loadedmetadata", () => {
-                const volumeSlider = document.getElementById("volume-slider");
-                volumeSlider.addEventListener("input", (e) => {
-                    audio.volume = e.target.value;
+                audio.src = "assets/music/music.mp3";
+                audio.volume = e.target.value;
+                
+                audio.addEventListener("loadedmetadata", () => {
+                    const volumeSlider = document.getElementById("volume-slider");
+                    volumeSlider.addEventListener("input", (e) => {
+                        audio.volume = e.target.value;
+                    });
+                    const offset = getBroadcastOffset();
+                    const segment = getCurrentSegment(offset);
+                    audio.currentTime = offset;
+                    audio.play();
+                    setInterval(() => {
+                        const currentTime = audio.currentTime;
+                        const currentSegment = getCurrentSegment(currentTime);
+                        segmentInfo.textContent = `Сейчас играет: ${currentSegment.title}`;
+                        const currentIndex = segments.findIndex(seg => seg.title === currentSegment.title);
+                        let nextSegment;
+                        if (currentIndex < segments.length - 1) {
+                            nextSegment = segments[currentIndex + 1];
+                        } else {
+                            nextSegment = segments[0];
+                        }
+                        document.getElementById("up-next-info").textContent = `Следующая песня: ${nextSegment.title}`;
+                    }, 1000);
                 });
-                const offset = getBroadcastOffset();
-                const segment = getCurrentSegment(offset);
-                audio.currentTime = offset;
-                audio.play();
-                setInterval(() => {
-                    const currentTime = audio.currentTime;
-                    const currentSegment = getCurrentSegment(currentTime);
-                    segmentInfo.textContent = `Сейчас играет: ${currentSegment.title}`;
-                    const currentIndex = segments.findIndex(seg => seg.title === currentSegment.title);
-                    let nextSegment;
-                    if (currentIndex < segments.length - 1) {
-                        nextSegment = segments[currentIndex + 1];
-                    } else {
-                        nextSegment = segments[0];
-                    }
-                    document.getElementById("up-next-info").textContent = `Следующая песня: ${nextSegment.title}`;
-                }, 1000);
-            });
 
-            audio.addEventListener("ended", () => {
-                const offset = getBroadcastOffset();
-                audio.currentTime = offset;
-                audio.play();
-            });
+                audio.addEventListener("ended", () => {
+                    const offset = getBroadcastOffset();
+                    audio.currentTime = offset;
+                    audio.play();
+                });
 
-            playBtn.disabled = true;
-            playBtn.textContent = "играю...";
+                playBtn.disabled = true;
+                playBtn.textContent = "играю...";
             });
 
             const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
