@@ -40,6 +40,7 @@
         <button id="play-btn">Настройтесь на</button>
 
         <div id="segment-info"></div>
+        <div id="up-next-info"></div>
         <canvas id="visualizer"></canvas>
         <audio id="radio-audio" preload="auto"></audio>
 
@@ -88,11 +89,18 @@
                 const segment = getCurrentSegment(offset);
                 audio.currentTime = offset;
                 audio.play();
-
                 setInterval(() => {
                     const currentTime = audio.currentTime;
                     const currentSegment = getCurrentSegment(currentTime);
                     segmentInfo.textContent = `Сейчас играет: ${currentSegment.title}`;
+                    const currentIndex = segments.findIndex(seg => seg.title === currentSegment.title);
+                    let nextSegment;
+                    if (currentIndex < segments.length - 1) {
+                        nextSegment = segments[currentIndex + 1];
+                    } else {
+                        nextSegment = segments[0];
+                    }
+                    document.getElementById("up-next-info").textContent = `Следующая песня: ${nextSegment.title}`;
                 }, 1000);
             });
 
