@@ -1,23 +1,94 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Simple 360 Viewer</title>
-    <script src="https://storage.googleapis.com/vrview/2.0/build/vrview.min.js"></script>
-    <style>
-      body, html { margin: 0; height: 100%; }
-      #vrview { width: 100%; height: 100%; }
-    </style>
-  </head>
-  <body>
-    <div id="vrview"></div>
-    <script>
-      var vrView = new VRView.Player('#vrview', {
-        image: 'stitch2.jpg',
-        width: '100%',
-        height: '100%',
-        is_stereo: false
-      });
-    </script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>Simple 360 Viewer with Navigation</title>
+  <script src="https://storage.googleapis.com/vrview/2.0/build/vrview.min.js"></script>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+    #vrview {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+    .nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 60px;
+      height: 60px;
+      background: rgba(50, 50, 50, 0.6);
+      color: white;
+      font-size: 36px;
+      text-align: center;
+      line-height: 60px;
+      cursor: pointer;
+      user-select: none;
+      z-index: 10;
+      border-radius: 30px;
+    }
+    .nav-button.disabled {
+      background: rgba(100, 100, 100, 0.3);
+      cursor: default;
+      pointer-events: none;
+    }
+    #leftBtn {
+      left: 10px;
+    }
+    #rightBtn {
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="vrview"></div>
+  <div id="leftBtn" class="nav-button">&#8592;</div>
+  <div id="rightBtn" class="nav-button">&#8594;</div>
+
+  <script>
+    const images = ['stitch1.jpg', 'stitch2.jpg', 'stitch3.jpg'];
+    let currentIndex = 1; // stitch2.jpg
+
+    let vrView;
+
+    function loadImage(index) {
+      currentIndex = index;
+
+      if (vrView) {
+        vrView.setContent({
+          image: images[currentIndex],
+          is_stereo: false
+        });
+      } else {
+        vrView = new VRView.Player('#vrview', {
+          image: images[currentIndex],
+          is_stereo: false,
+          auto_load: true
+        });
+      }
+
+      document.getElementById('leftBtn').classList.toggle('disabled', currentIndex === 0);
+      document.getElementById('rightBtn').classList.toggle('disabled', currentIndex === images.length - 1);
+    }
+
+    document.getElementById('leftBtn').addEventListener('click', () => {
+      if (currentIndex > 0) {
+        loadImage(currentIndex - 1);
+      }
+    });
+
+    document.getElementById('rightBtn').addEventListener('click', () => {
+      if (currentIndex < images.length - 1) {
+        loadImage(currentIndex + 1);
+      }
+    });
+
+    loadImage(currentIndex);
+  </script>
+</body>
 </html>
