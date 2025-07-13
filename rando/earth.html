@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Simple 360 Viewer</title>
+    <script src="https://storage.googleapis.com/vrview/2.0/build/vrview.min.js"></script>
+    <style>
+      body, html { margin: 0; height: 100%; }
+      #vrview { width: 100%; height: 100%; }
+    </style>
+  </head>
+  <body>
+    <div id="vrview"></div>
+    <script>
+      var vrView = new VRView.Player('#vrview', {
+        image: 'stitch2.jpg',
+        width: '100%',
+        height: '100%',
+        is_stereo: false
+      });
+    </script>
+  </body>
+</html>
