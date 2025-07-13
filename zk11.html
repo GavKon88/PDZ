@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>ZK-11 - WikiReal</title>
+    <script>
+      if (localStorage.getItem("darkMode") === "true") {
+        document.documentElement.classList.add("dark-mode");
+      }
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script defer src="assets/js/darkmode.js"></script>
+    <script defer src="assets/js/univsearch.js"></script>
+    <script defer src="assets/js/popup.js"></script>     
+    <link rel="icon" href="assets/favicon.png" type="image/png">
+    <style>
+      body {
+        font-family: sans-serif;
+        max-width: 960px;
+        margin: auto;
+        padding: 1rem;
+        background: #f8f9fa;
+        color: #202122;
+      }
+      h1, h2, h3 {
+        color: #2a4b8d;
+      }
+      h1 {
+        border-bottom: 1px solid #a2a9b1;
+        padding-bottom: 0.3em;
+      }
+      .infobox {
+        float: right;
+        background: #f8f9fa;
+        border: 1px solid #a2a9b1;
+        width: 380px;
+        font-size: 90%;
+        padding: 0.5em;
+        margin-left: 1em;
+      }
+      .infobox th {
+        background: #cedff2;
+        text-align: center;
+      }
+      .infobox td {
+        vertical-align: top;
+      }
+      .infobox img {
+        display: block;
+        margin: 0 auto 0.5em auto;
+        max-width: 100%;
+        height: auto;
+      }
+      p {
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="univ-search-container">
+        <input type="text" id="univSearchInput" placeholder="Search pages..." autocomplete="off" />
+        <div id="univSuggestions"></div>    
+    </div>
+    <div>
+      <a href="index.html">
+        <img id="logo" src="https://i.postimg.cc/pd9yM90P/head2.png" 
+          alt="Header"
+          style="position: fixed; top: 1rem; left: 0px; height: 120px; z-index: 1000;">
+      </a>
+    </div>
+    <div>
+      <button id="darkModeToggle" style="
+          position: fixed;
+          top: 140px;
+          left: 10px;
+          font-size: 0.9rem;
+          padding: 6px 10px;
+          background-color: #ddd;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          z-index: 1000;
+        ">
+        Toggle Dark Mode
+      </button>
+    </div>
+
+    <h1>ZK-11</h1>
+    <p><em>PDZ domestic multirole fighter</em></p>
+
+    <div class="infobox">
+      <table>
+        <tr><th colspan="2" style="font-size: 18px;">ZK-11</th></tr>
+        <tr><td><img src="assets/military/zk11.png"
+          alt="" 
+          onclick="openPopup('assets/military/zk11.png', 'Two ZK-11s mounted on a Mig-23UDL-E1')"
+        </tr>
+        <tr><td style="font-size: 12px;">Two ZK-11s mounted on a Mig-23UDL-E1</td></tr>
+      </table>
+      <table style="width: 100%; border-collapse: separate; border-spacing: 0 4px;">
+        <tr><th colspan="2" style="font-size: 18px;">Information</th></tr>
+        <tr><td><strong>Type:</strong></td><td>Short-range air-to-air missile</td></tr>
+        <tr><td><strong>Place of Origin:</strong></td><td><a href="zegracrisis.html">Zegra</a></td></tr>
+        <tr><th colspan="2" style="font-size: 18px;">Specifications</th></tr>
+        <tr><td><strong>Mass:</strong></td><td>91 kilograms (201 lb)</td></tr>
+        <tr><td><strong>Length:</strong></td><td>1.91 meters (8 ft 10 in)</td></tr>
+        <tr><td><strong>Diameter:</strong></td><td>165 millimeters (6.5 in)</td></tr>
+        <tr><td><strong>Wingspan:</strong></td><td>500 millimeters (19.5 in)</td></tr>
+        <tr><td><strong>Warhead:</strong></td><td>7.4 kilograms (16 lb)</td></tr>
+        <tr><td><strong>Engine:</strong></td><td>Solid-fuel rocket engine</td></tr>
+        <tr><td><strong>Operational Range:</strong></td><td>30 kilometers</td></tr>
+        <tr><td><strong>Top Speed:</strong></td><td>
+          ZK-11A/ZK-11M: Mach 2.5<br>
+          ZK-11MV: Mach 3.2<br>
+        </td></tr>
+        <tr><td><strong>Guidance System:</strong></td><td>All-aspect infrared homing</td></tr>
+        <tr><td><strong>Off-Boresight:</strong></td><td>
+          ZK-11A: ±75°<br>
+          ZK-11M/ZK-11MV: ±90°<br>
+        </td></tr>
+      </table>
+    </div>
+
+    <h2>Development</h2>
+    <p>The ZK-11 is a domestically produced short-range infrared-guided air-to-air missile developed by the Zorya-Konstrukt Bureau, a defense enterprise of <a href="zegracrisis.html">Zegra</a>. Designed to replace inherited Soviet-era R-60 and R-73 missiles, the ZK-11 was created as part of a broader national modernization program to reduce reliance on both Russian and Western military supply chains.</p>
+    <p>The missile features an advanced high-resolution imaging infrared (IIR) seeker, capable of target discrimination in cluttered environments and hardened against modern flare and directional infrared countermeasures (DIRCM). A compact thrust-vectoring control system enables exceptional maneuverability, allowing the ZK-11 to perform high off-boresight (up to ±90° by variant) engagements with remarkable effectiveness. It supports both lock-on-before-launch (LOBL) and lock-on-after-launch (LOAL) modes, and is fully compatible with helmet-mounted cueing systems and digital fire control interfaces.</p>
+    <p>Constructed using lightweight composite alloys and precision-engineered internal components, the ZK-11 is more expensive to produce than legacy Soviet systems or mass-produced foreign equivalents. However, the combination of high agility, robust ECCM resistance, and advanced seeker performance has been seen as sufficient justification for its cost within Zegra’s defense planning circles—especially given its role as a sovereign, domestically controlled solution.</p>
+    <p>Though compatible with older Soviet-standard pylons, the ZK-11 was optimized for use on modernized national platforms such as the MiG-23UDL-E2, where it replaced remaining stocks of R-73s.</p>
+    <p>While officially categorized as a defensive modernization asset, the ZK-11’s performance characteristics place it firmly alongside 4th- and even 5th-generation short-range air-to-air missiles. It is not formally offered for export, though limited interest has been recorded from partner nations with aligned strategic interests.</p> 
+
+    <h2>Performance and Trials</h2>
+    <p>Initial flight testing of the ZK-11A began in late 2023, with evaluations carried out by the Zegran Air Force at Kalensk Air Range and other regional proving grounds. Early assessments confirmed the missile’s high agility and reliability, with a reported effective range of approximately 30 km against subsonic aerial targets. The seeker exhibited consistent tracking performance within its ±75° off-boresight envelope, particularly when cued by helmet-mounted sights.</p>
+    <p>The upgraded ZK-11M variant, featuring a refined seeker and improved signal processing, demonstrated increased off-boresight acquisition (±90°), faster lock-on times (average 1.1 seconds), and improved resilience to common infrared countermeasures. During trials, the ZK-11M achieved hit probabilities above 85% in within-visual-range (WVR) scenarios and was capable of engaging low-altitude maneuvering targets with high accuracy.</p>
+    <p>The speed-optimized ZK-11MV was tested in early 2025 as a supplement to the M-series, utilizing an enhanced solid-propellant motor to achieve top speeds exceeding Mach 3.2. The MV variant significantly improved time-to-target in short-range intercepts and high-closure-rate engagements. It proved particularly effective in rapid launch-and-defeat scenarios where response time and target lead margins were critical.</p>
+    <p>Field evaluations also noted the missile's effective proximity fuse, engaging targets with a lethal radius of 5–7 meters. Across all tested variants, thrust-vectoring control allowed for aggressive terminal maneuvering, contributing to high effectiveness against evading targets. The ZK-11 series performed well in cold-weather environments and high-humidity conditions, with minimal degradation in seeker performance.</p>
+    <p>While the ZK-11 is considered expensive relative to the legacy IR-guided missiles of the Soviet era, its use of lightweight composite materials and modular electronics has been credited with improving range, responsiveness, and life-cycle maintainability. As of mid-2025, the ZK-11A, ZK-11M, and ZK-11MV are all in service with Zegra’s air force as the primary short-range IR air-to-air missile, primarily on MiG-23UDL platforms and select other aircraft.</p>
+
+    <h2>Variants</h2>
+    <p>ZK-11A - Standard model with ±75° off-boresight.</p>
+    <p>ZK-11M - ±90° off-boresight, two-color IIR seeker, and upgraded IIRCM for improved resistance to flares and DIRCM.</p>
+    <p>ZK-11MV - Speed optimized variant of the ZK-11M with improved motor and propellant composition. Top speed increased to Mach 3.2 in favourable conditions.</p>
+    <script>
+      const univPages = [
+          { name: "Druzhna Blackout Arrests", url: "druzhna.html" },
+          { name: "Konstantin Vezhar", url: "konstantin.html" },
+          { name: "Kovchag Labor Crackdown", url: "kovchag.html" },
+          { name: "PDZ Military", url: "military.html" },
+          { name: "Antonovich Morozov (blank)", url: "morozov.html" },
+          { name: "Operation Patriotic Veil (OPV)", url: "OPV.html" },
+          { name: "PDZ Politics (ZDP/DPZ)", url: "politics.html" },
+          { name: "Yelovsk Power Plant Shelling", url: "yelovsk.html" },
+          { name: "Zegra Secession Crisis", url: "zegracrisis.html" },
+          { name: "Zegra Technological Initiative (ZTI, blank)", url: "ZTI.html" }
+      ];
+
+      const univInput = document.getElementById("univSearchInput");
+      const univSuggestions = document.getElementById("univSuggestions");
+
+      function escapeRegExp(string) {
+          return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      }
+
+      function highlightMatch(text, filter) {
+          if (!filter) return text;
+          const regex = new RegExp(`(${escapeRegExp(filter)})`, 'gi');
+          return text.replace(regex, '<span class="matched">$1</span>');
+      }
+
+      function showUnivSuggestions(filter) {
+          univSuggestions.innerHTML = "";
+          const lowerFilter = filter.toLowerCase();
+          const filtered = univPages.filter(page =>
+              page.name.toLowerCase().includes(lowerFilter)
+          );
+
+          filtered.forEach(page => {
+              const div = document.createElement("div");
+              div.classList.add("suggestion");
+              div.innerHTML = highlightMatch(page.name, filter);
+              div.onclick = () => window.location.href = page.url;
+              univSuggestions.appendChild(div);
+          });
+
+          univSuggestions.style.display = filtered.length ? "block" : "none";
+      }
+
+      univInput.addEventListener("focus", () => {
+          const value = univInput.value.trim();
+          showUnivSuggestions(value);
+      });
+
+      univInput.addEventListener("input", () => {
+          const value = univInput.value.trim();
+          showUnivSuggestions(value);
+      });
+
+      document.addEventListener("click", (event) => {
+          if (!univInput.contains(event.target) && !univSuggestions.contains(event.target)) {
+              univSuggestions.style.display = "none";
+          }
+      });
+
+      univSuggestions.style.display = "none";
+    </script>
+    <div id="popup" class="popup-overlay" onclick="closePopup(event)">
+      <div class="popup-content" onclick="event.stopPropagation()">
+          <button class="close-btn" onclick="closePopup(event)">×</button>
+          <img id="popup-img" class="popup-img" src="" alt="">
+          <p id="popup-desc"></p>
+      </div>
+    </div>
+  </body>
+</html>
